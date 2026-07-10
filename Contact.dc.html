@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us | Schreüder Electrical</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500&amp;family=Roboto+Flex:wght@500&amp;display=swap" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: #f6f9ff; }
+  a { color: #146294; }
+  a:hover { color: #fe922b; }
+</style>
+</helmet>
+
+<div style="font-family: Inter, sans-serif; color: #171c21; background: #f6f9ff;">
+<dc-import name="SiteHeader" active-page="contact" hint-size="100%,72px"></dc-import>
+
+<section style="position: relative; min-height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+  <div style="position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1595831708961-1b13c0dd2422?w=1600&h=900&fit=crop&auto=format&q=80'); background-size: cover; background-position: center;"></div>
+  <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,30,48,0.85), rgba(0,30,48,0.4));"></div>
+  <div style="position: relative; text-align: center; padding: 24px; max-width: 640px;">
+    <h1 style="font-family: Montserrat, sans-serif; font-weight: 700; font-size: clamp(30px, 4.5vw, 46px); color: #ffffff; margin: 0 0 12px;">Get in Touch</h1>
+    <p style="font-family: Inter, sans-serif; font-size: 16px; color: #e2ecf7; margin: 0;">Expert electrical solutions for residential and commercial excellence. Let's discuss your project's precision and safety needs.</p>
+  </div>
+</section>
+
+<section style="max-width: 1280px; margin: 0 auto; padding: 80px clamp(16px, 4vw, 64px);">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; align-items: start;">
+
+    <div style="grid-column: span 2; background: #ffffff; border-radius: 12px; padding: clamp(24px, 4vw, 40px); border: 1px solid #e4e8ef; box-shadow: 0 4px 20px -4px rgba(20,98,148,0.1);">
+      <h2 style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 26px; color: #006493; margin: 0 0 28px;">Send us a Message</h2>
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="padding: 40px 20px; text-align: center;">
+          <div style="font-size: 40px; margin-bottom: 12px;">✅</div>
+          <p style="font-family: Montserrat, sans-serif; font-size: 18px; color: #006493; margin: 0;">Message sent! We'll be in touch shortly.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <form onsubmit="{{ handleSubmit }}" style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-family: 'Roboto Flex', sans-serif; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #3e4850;">Full Name</label>
+              <input type="text" placeholder="John Doe" style="padding: 12px 14px; border: 1px solid #bec8d2; border-radius: 8px; font-family: Inter, sans-serif; font-size: 15px; outline: none;" />
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-family: 'Roboto Flex', sans-serif; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #3e4850;">Email Address</label>
+              <input type="email" placeholder="john@example.com" style="padding: 12px 14px; border: 1px solid #bec8d2; border-radius: 8px; font-family: Inter, sans-serif; font-size: 15px; outline: none;" />
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-family: 'Roboto Flex', sans-serif; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #3e4850;">Phone Number</label>
+            <input type="tel" placeholder="+27 12 345 6789" style="padding: 12px 14px; border: 1px solid #bec8d2; border-radius: 8px; font-family: Inter, sans-serif; font-size: 15px; outline: none;" />
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-family: 'Roboto Flex', sans-serif; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #3e4850;">Service Needed</label>
+            <select style="padding: 12px 14px; border: 1px solid #bec8d2; border-radius: 8px; font-family: Inter, sans-serif; font-size: 15px; outline: none; background: #fff;">
+              <option>Residential</option>
+              <option>Commercial</option>
+              <option>Industrial</option>
+            </select>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-family: 'Roboto Flex', sans-serif; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #3e4850;">Message</label>
+            <textarea placeholder="Tell us about your electrical requirements..." rows="5" style="padding: 12px 14px; border: 1px solid #bec8d2; border-radius: 8px; font-family: Inter, sans-serif; font-size: 15px; outline: none; resize: none;"></textarea>
+          </div>
+          <button type="submit" style="width: fit-content; background: #fe922b; color: #ffffff; padding: 16px 36px; border: none; border-radius: 10px; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 15px; cursor: pointer; box-shadow: 0 6px 16px rgba(254,146,43,0.3); transition: transform 0.15s ease;" style-hover="transform: scale(1.03);">Submit Request</button>
+        </form>
+      </sc-if>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div style="background: #006493; border-radius: 12px; padding: 32px; color: #ffffff;">
+        <h3 style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 21px; margin: 0 0 20px;">Direct Contact</h3>
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <a href="tel:+27123456789" style="display: flex; align-items: center; gap: 14px; color: #fff; text-decoration: none;">
+            <span style="width: 42px; height: 42px; border-radius: 999px; background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 18px;">📞</span>
+            <span>
+              <span style="display: block; font-size: 11px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.05em;">Phone</span>
+              <span style="display: block; font-family: Montserrat, sans-serif; font-weight: 600;">+27 12 345 6789</span>
+            </span>
+          </a>
+          <a href="mailto:contact@schreuder.com" style="display: flex; align-items: center; gap: 14px; color: #fff; text-decoration: none;">
+            <span style="width: 42px; height: 42px; border-radius: 999px; background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 18px;">✉️</span>
+            <span>
+              <span style="display: block; font-size: 11px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.05em;">Email</span>
+              <span style="display: block; font-family: Montserrat, sans-serif; font-weight: 600;">contact@schreuder.com</span>
+            </span>
+          </a>
+          <a href="https://wa.me/27123456789" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #25D366; color: #fff; padding: 14px; border-radius: 10px; text-decoration: none; font-family: Montserrat, sans-serif; font-weight: 700; margin-top: 4px;">💬 WhatsApp Us</a>
+        </div>
+      </div>
+
+      <div style="background: #e4e8ef; border-radius: 12px; padding: 32px;">
+        <h3 style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 21px; color: #006493; margin: 0 0 20px;">Follow Our Work</h3>
+        <div style="display: flex; gap: 12px;">
+          <a href="#" style="width: 46px; height: 46px; border-radius: 10px; background: #ffffff; border: 1px solid #bec8d2; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #146294; font-size: 13px; font-weight: 600;" style-hover="border-color:#fe922b;">FB</a>
+          <a href="#" style="width: 46px; height: 46px; border-radius: 10px; background: #ffffff; border: 1px solid #bec8d2; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #146294; font-size: 13px; font-weight: 600;" style-hover="border-color:#fe922b;">IG</a>
+          <a href="#" style="width: 46px; height: 46px; border-radius: 10px; background: #ffffff; border: 1px solid #bec8d2; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #146294; font-size: 13px; font-weight: 600;" style-hover="border-color:#fe922b;">LI</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section style="background: #eaeef4; padding: 80px clamp(16px, 4vw, 64px);">
+  <div style="max-width: 1280px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <h2 style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: clamp(26px, 3vw, 32px); color: #006493; margin: 0 0 12px;">Our Service Area</h2>
+      <p style="font-family: Inter, sans-serif; font-size: 17px; color: #3e4850; max-width: 640px; margin: 0 auto;">Proudly serving Cape Town, Northern Suburbs, Southern Suburbs, and the Atlantic Seaboard with premium electrical services.</p>
+    </div>
+    <div style="position: relative; height: 380px; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 30px -6px rgba(20,98,148,0.18);">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=18.0%2C-34.5%2C24.0%2C-30.5&amp;layer=mapnik&amp;marker=-33.9249%2C18.4241" title="Western Cape service area map" style="width: 100%; height: 100%; border: 0;" loading="lazy"></iframe>
+      <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; max-width: 340px; background: rgba(255,255,255,0.96); border-radius: 12px; padding: 24px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+        <h4 style="font-family: Montserrat, sans-serif; font-weight: 700; color: #006493; margin: 0 0 10px; display: flex; align-items: center; gap: 8px;"><span style="color:#fe922b;">📍</span>Regional HQ</h4>
+        <p style="font-family: Inter, sans-serif; font-size: 13px; color: #3e4850; margin: 0 0 14px;">Central Park, Century City, Cape Town, 7441, South Africa</p>
+        <div style="display: flex; justify-content: space-between; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 700; color: #006493; margin-bottom: 6px;">
+          <span>Response Time</span><span style="color: #fe922b;">&lt; 2 Hours</span>
+        </div>
+        <div style="width: 100%; height: 8px; background: #eaeef4; border-radius: 999px; overflow: hidden;">
+          <div style="width: 90%; height: 100%; background: #fe922b;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { submitted: false };
+
+  renderVals() {
+    return {
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      handleSubmit: (e) => {
+        e.preventDefault();
+        this.setState({ submitted: true });
+        setTimeout(() => this.setState({ submitted: false }), 4000);
+      },
+    };
+  }
+}
+
+</script>
+</body>
+</html>

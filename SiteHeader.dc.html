@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<header style="box-sizing: border-box; position: sticky; top: 0; z-index: 50; width: 100%; background: #ffffff; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px clamp(16px, 4vw, 64px);">
+  <a href="Home.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0;">
+    <img src="uploads/Light emblem.png" alt="Schreüder Electrical" style="height: 42px; width: 42px; object-fit: contain;" />
+    <span style="font-family: Montserrat, sans-serif; font-weight: 700; font-size: clamp(15px, 1.6vw, 19px); color: #0c3470; letter-spacing: 0.01em; white-space: nowrap;">Schreüder <span style="color:#146294; font-weight: 600;">Electrical</span></span>
+  </a>
+
+  <nav style="display: {{ desktopNavDisplay }}; align-items: center; gap: clamp(16px, 2.5vw, 32px);">
+    <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="4">
+      <a href="{{ item.href }}" style="font-family: 'Roboto Flex', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; color: {{ item.color }}; padding-bottom: 4px; border-bottom: 2px solid {{ item.borderColor }}; transition: color 0.2s ease;" style-hover="color: #fe922b;">{{ item.label }}</a>
+    </sc-for>
+  </nav>
+
+  <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+    <a href="https://wa.me/27123456789" style="display: {{ desktopNavDisplay }}; align-items: center; gap: 8px; background: #25D366; color: #ffffff; padding: 10px 20px; border-radius: 999px; text-decoration: none; font-family: 'Roboto Flex', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; box-shadow: 0 2px 8px rgba(37,211,102,0.3); transition: filter 0.2s ease;" style-hover="filter: brightness(1.08);">
+      <span aria-hidden="true">💬</span> WhatsApp
+    </a>
+    <button aria-label="Toggle menu" onclick="{{ toggleMobile }}" style="display: {{ mobileButtonDisplay }}; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 8px; border: 1px solid #e2e8f0; background: #ffffff; cursor: pointer; flex-direction: column; gap: 4px;">
+      <span style="display: block; width: 20px; height: 2px; background: #0c3470; border-radius: 2px;"></span>
+      <span style="display: block; width: 20px; height: 2px; background: #0c3470; border-radius: 2px;"></span>
+      <span style="display: block; width: 20px; height: 2px; background: #0c3470; border-radius: 2px;"></span>
+    </button>
+  </div>
+</header>
+
+<sc-if value="{{ mobileOpen }}" hint-placeholder-val="{{ false }}">
+  <div onclick="{{ closeMobile }}" style="position: fixed; inset: 0; background: rgba(12,52,112,0.45); z-index: 59;"></div>
+  <div style="position: fixed; top: 0; right: 0; height: 100%; width: min(80vw, 320px); background: #ffffff; z-index: 60; box-shadow: -8px 0 24px rgba(0,0,0,0.12); padding: 24px; display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+      <span style="font-family: Montserrat, sans-serif; font-weight: 700; color: #0c3470; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">Menu</span>
+      <button aria-label="Close menu" onclick="{{ closeMobile }}" style="background: none; border: none; font-size: 20px; color: #0c3470; cursor: pointer; line-height: 1;">✕</button>
+    </div>
+    <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="4">
+      <a href="{{ item.href }}" onclick="{{ closeMobile }}" style="display: block; padding: 14px 16px; border-radius: 10px; text-decoration: none; font-family: 'Roboto Flex', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: 0.03em; text-transform: uppercase; background: {{ item.mobileBg }}; color: {{ item.color }};">{{ item.label }}</a>
+    </sc-for>
+    <a href="https://wa.me/27123456789" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #ffffff; padding: 14px; border-radius: 10px; text-decoration: none; font-family: 'Roboto Flex', sans-serif; font-weight: 600; font-size: 14px; margin-top: 12px;">
+      <span aria-hidden="true">💬</span> WhatsApp Us
+    </a>
+  </div>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;activePage&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;home&quot;, &quot;options&quot;: [&quot;home&quot;, &quot;services&quot;, &quot;about&quot;, &quot;contact&quot;], &quot;tsType&quot;: &quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { mobileOpen: false, isMobile: false };
+
+  computeIsMobile() {
+    return typeof window !== 'undefined' && window.innerWidth < 1100;
+  }
+
+  componentDidMount() {
+    this.setState({ isMobile: this.computeIsMobile() });
+    this._onResize = () => this.setState({ isMobile: this.computeIsMobile() });
+    window.addEventListener('resize', this._onResize);
+  }
+
+  componentWillUnmount() {
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+  }
+
+  renderVals() {
+    const active = this.props.activePage || 'home';
+    const pages = [
+      { key: 'home', label: 'Home', href: 'Home.dc.html' },
+      { key: 'services', label: 'Services', href: 'Services.dc.html' },
+      { key: 'about', label: 'Who Are We', href: 'About.dc.html' },
+      { key: 'contact', label: 'Contact', href: 'Contact.dc.html' },
+    ];
+    const navItems = pages.map(p => ({
+      label: p.label,
+      href: p.href,
+      color: p.key === active ? '#146294' : '#3e4850',
+      borderColor: p.key === active ? '#fe922b' : 'transparent',
+      mobileBg: p.key === active ? '#eaf3ff' : 'transparent',
+    }));
+
+    return {
+      navItems,
+      mobileOpen: this.state.mobileOpen,
+      desktopNavDisplay: this.state.isMobile ? 'none' : 'flex',
+      mobileButtonDisplay: this.state.isMobile ? 'flex' : 'none',
+      toggleMobile: () => this.setState(s => ({ mobileOpen: !s.mobileOpen })),
+      closeMobile: () => this.setState({ mobileOpen: false }),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

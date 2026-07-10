@@ -22,16 +22,16 @@
 <div style="font-family: Inter, sans-serif; color: #171c21; background: #f6f9ff;">
 <dc-import name="SiteHeader" active-page="home" hint-size="100%,72px"></dc-import>
 
-<section style="position: relative; min-height: 640px; display: flex; align-items: center; overflow: hidden;">
+<section style="position: relative; min-height: min(640px, 92vh); display: flex; align-items: center; overflow: hidden;">
   <div style="position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&h=900&fit=crop&auto=format&q=80'); background-size: cover; background-position: center;"></div>
   <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,52,112,0.92) 0%, rgba(12,52,112,0.65) 45%, rgba(12,52,112,0.15) 100%);"></div>
-  <div style="position: relative; max-width: 1280px; margin: 0 auto; width: 100%; padding: 64px clamp(16px, 4vw, 64px); display: flex; flex-direction: column; gap: 24px; max-width: 680px;">
+  <div style="position: relative; max-width: 680px; margin: 0 auto; width: 100%; padding: clamp(40px, 10vw, 64px) clamp(16px, 4vw, 64px); display: flex; flex-direction: column; gap: 20px; box-sizing: border-box;">
     <span style="display: inline-block; width: fit-content; background: {{ accentColor }}; color: #ffffff; padding: 6px 16px; border-radius: 4px; font-family: 'Roboto Flex', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">{{ heroBadge }}</span>
     <h1 style="font-family: Montserrat, sans-serif; font-weight: 700; font-size: clamp(32px, 5vw, 52px); line-height: 1.1; letter-spacing: -0.01em; color: #ffffff; margin: 0;">{{ heroHeadline }}</h1>
     <p style="font-family: Inter, sans-serif; font-size: clamp(16px, 1.6vw, 18px); line-height: 1.6; color: #dbe6f5; margin: 0; max-width: 520px;">From large-scale industrial installations to meticulous residential maintenance, we deliver precision-engineered solutions backed by decades of technical mastery.</p>
     <div style="display: flex; flex-wrap: wrap; gap: 16px; padding-top: 8px;">
-      <a href="Services.dc.html" style="display: flex; align-items: center; gap: 8px; background: #38b6ff; color: #ffffff; padding: 16px 28px; border-radius: 8px; text-decoration: none; font-family: Montserrat, sans-serif; font-weight: 600; font-size: 16px; transition: box-shadow 0.2s ease;" style-hover="box-shadow: 0 0 20px rgba(56,182,255,0.5);">View Services →</a>
-      <a href="Contact.dc.html" style="background: {{ accentColor }}; color: #0c3470; padding: 16px 28px; border-radius: 8px; text-decoration: none; font-family: Montserrat, sans-serif; font-weight: 600; font-size: 16px; transition: box-shadow 0.2s ease;" style-hover="box-shadow: 0 0 20px rgba(254,146,43,0.5);">Contact Us</a>
+      <a href="Services.dc.html" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #38b6ff; color: #ffffff; padding: 16px 28px; border-radius: 8px; text-decoration: none; font-family: Montserrat, sans-serif; font-weight: 600; font-size: 16px; transition: box-shadow 0.2s ease; flex: 1 1 200px; text-align: center; box-sizing: border-box;" style-hover="box-shadow: 0 0 20px rgba(56,182,255,0.5);">View Services →</a>
+      <a href="Contact.dc.html" style="background: {{ accentColor }}; color: #0c3470; padding: 16px 28px; border-radius: 8px; text-decoration: none; font-family: Montserrat, sans-serif; font-weight: 600; font-size: 16px; transition: box-shadow 0.2s ease; flex: 1 1 200px; text-align: center; box-sizing: border-box;" style-hover="box-shadow: 0 0 20px rgba(254,146,43,0.5);">Contact Us</a>
     </div>
   </div>
 </section>
@@ -106,7 +106,7 @@
     </div>
     <a href="Contact.dc.html" style="color: #006493; font-family: 'Roboto Flex', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none;">Request a Quote →</a>
   </div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); grid-auto-rows: 220px; gap: 20px;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); grid-auto-rows: minmax(200px, 240px); gap: 20px;">
     <div style="position: relative; grid-row: span 2; border-radius: 12px; overflow: hidden; background: #e4e8ef;">
       <img src="https://images.unsplash.com/photo-1758101755915-462eddc23f57?w=800&h=900&fit=crop&auto=format&q=80" alt="Industrial control panel installation" style="width: 100%; height: 100%; object-fit: cover;" />
       <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.75), transparent 60%); display: flex; align-items: flex-end; padding: 20px;">
@@ -148,7 +148,7 @@
 </sc-if>
 
 <section style="background: #f0f4fa; padding: 80px clamp(16px, 4vw, 64px);">
-  <div style="max-width: 1280px; margin: 0 auto; background: #006493; border-radius: 24px; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between;">
+  <div style="max-width: 1280px; margin: 0 auto; background: #006493; border-radius: 24px; padding: clamp(28px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 28px; align-items: center; justify-content: space-between; box-sizing: border-box;">
     <div style="max-width: 520px; display: flex; flex-direction: column; gap: 16px;">
       <h2 style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: clamp(24px, 3vw, 34px); color: #ffffff; margin: 0;">Need a quote for your next project?</h2>
       <p style="font-family: Inter, sans-serif; font-size: 17px; color: #cae6ff; margin: 0;">Our team of experts is ready to assist you with a detailed technical assessment and transparent pricing.</p>
@@ -157,7 +157,7 @@
         <div style="display: flex; align-items: center; gap: 10px; color: #ffffff; font-family: Montserrat, sans-serif; font-size: 16px;"><span style="color:#fe922b;">✉️</span>projects@schreuder.com</div>
       </div>
     </div>
-    <a href="Contact.dc.html" style="background: {{ accentColor }}; color: #0c3470; padding: 18px 36px; border-radius: 10px; text-decoration: none; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 17px; white-space: nowrap; transition: box-shadow 0.2s ease;" style-hover="box-shadow: 0 0 20px rgba(254,146,43,0.5);">Get a Free Quote</a>
+    <a href="Contact.dc.html" style="background: {{ accentColor }}; color: #0c3470; padding: 18px 32px; border-radius: 10px; text-decoration: none; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 17px; transition: box-shadow 0.2s ease; flex: 1 1 220px; text-align: center; box-sizing: border-box;" style-hover="box-shadow: 0 0 20px rgba(254,146,43,0.5);">Get a Free Quote</a>
   </div>
 </section>
 

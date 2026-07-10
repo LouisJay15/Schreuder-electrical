@@ -32,9 +32,9 @@
 </section>
 
 <section style="max-width: 1280px; margin: 0 auto; padding: 80px clamp(16px, 4vw, 64px);">
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; align-items: start;">
+  <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
 
-    <div style="grid-column: span 2; background: #ffffff; border-radius: 12px; padding: clamp(24px, 4vw, 40px); border: 1px solid #e4e8ef; box-shadow: 0 4px 20px -4px rgba(20,98,148,0.1);">
+    <div style="flex: 2 1 480px; background: #ffffff; border-radius: 12px; padding: clamp(24px, 4vw, 40px); border: 1px solid #e4e8ef; box-shadow: 0 4px 20px -4px rgba(20,98,148,0.1); box-sizing: border-box;">
       <h2 style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 26px; color: #006493; margin: 0 0 28px;">Send us a Message</h2>
       <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
         <div style="padding: 40px 20px; text-align: center;">
@@ -75,8 +75,8 @@
       </sc-if>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 24px;">
-      <div style="background: #006493; border-radius: 12px; padding: 32px; color: #ffffff;">
+    <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 24px; box-sizing: border-box;">
+      <div style="background: #006493; border-radius: 12px; padding: 32px; color: #ffffff; box-sizing: border-box;">
         <h3 style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: 21px; margin: 0 0 20px;">Direct Contact</h3>
         <div style="display: flex; flex-direction: column; gap: 18px;">
           <a href="tel:+27123456789" style="display: flex; align-items: center; gap: 14px; color: #fff; text-decoration: none;">
@@ -116,9 +116,9 @@
       <h2 style="font-family: Montserrat, sans-serif; font-weight: 600; font-size: clamp(26px, 3vw, 32px); color: #006493; margin: 0 0 12px;">Our Service Area</h2>
       <p style="font-family: Inter, sans-serif; font-size: 17px; color: #3e4850; max-width: 640px; margin: 0 auto;">Proudly serving Cape Town, Northern Suburbs, Southern Suburbs, and the Atlantic Seaboard with premium electrical services.</p>
     </div>
-    <div style="position: relative; height: 380px; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 30px -6px rgba(20,98,148,0.18);">
+    <div style="position: relative; height: clamp(320px, 55vw, 420px); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 30px -6px rgba(20,98,148,0.18);">
       <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=18.0%2C-34.5%2C24.0%2C-30.5&amp;layer=mapnik&amp;marker=-33.9249%2C18.4241" title="Western Cape service area map" style="width: 100%; height: 100%; border: 0;" loading="lazy"></iframe>
-      <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; max-width: 340px; background: rgba(255,255,255,0.96); border-radius: 12px; padding: 24px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+      <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; max-width: 340px; background: rgba(255,255,255,0.96); border-radius: 12px; padding: clamp(16px, 3vw, 24px); box-sizing: border-box; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
         <h4 style="font-family: Montserrat, sans-serif; font-weight: 700; color: #006493; margin: 0 0 10px; display: flex; align-items: center; gap: 8px;"><span style="color:#fe922b;">📍</span>Regional HQ</h4>
         <p style="font-family: Inter, sans-serif; font-size: 13px; color: #3e4850; margin: 0 0 14px;">Central Park, Century City, Cape Town, 7441, South Africa</p>
         <div style="display: flex; justify-content: space-between; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 700; color: #006493; margin-bottom: 6px;">

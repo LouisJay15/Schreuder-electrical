@@ -26,7 +26,7 @@ $jsonLd = [
       <p class="lede">Adjust the sliders to see an estimated monthly repayment. This is illustrative — your actual rate depends on an affordability assessment.</p>
 
       <form id="calc-form" class="grid grid-2" style="margin-top:32px; gap:32px; align-items:start;">
-        <div class="card" data-reveal="left">
+        <div class="card">
           <div class="field">
             <label for="calc-amount">Loan amount — <span id="calc-amount-label">R25,000</span></label>
             <input type="range" id="calc-amount" min="1000" max="250000" step="500" value="25000">
@@ -42,7 +42,7 @@ $jsonLd = [
           </div>
         </div>
 
-        <div class="card" data-reveal="right" style="background:var(--ink); color:#fff; border:none;">
+        <div class="card" style="background:var(--ink); color:#fff; border:none;">
           <p class="eyebrow" style="color:#7cd6ac;">Estimated repayment</p>
           <h2 style="color:#fff; font-size:2.4rem; margin-bottom:4px;" id="calc-monthly">R0</h2>
           <p class="muted" style="color:#9bb3a5;">per month</p>

@@ -62,7 +62,7 @@ $jsonLd = [
 <main id="main">
   <section class="section">
     <div class="container grid grid-2" style="align-items:start; gap:56px;">
-      <div data-reveal="left">
+      <div>
         <p class="eyebrow">Contact</p>
         <h1>We're here to help.</h1>
         <p class="lede">Questions about an application, your account, or how our loans work — reach out and a real person will get back to you within one business day.</p>
@@ -83,7 +83,7 @@ $jsonLd = [
         </div>
       </div>
 
-      <div class="form-card" data-reveal="right">
+      <div class="form-card">
         <?php if ($success): ?>
           <div class="alert alert-success">Thanks — your message is on its way. We'll reply within one business day.</div>
         <?php else: ?>

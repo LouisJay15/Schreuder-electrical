@@ -48,6 +48,13 @@
     document.querySelectorAll("[data-reveal]").forEach(function (el) {
       revealIO.observe(el);
     });
+    // Safety net: never leave content permanently invisible if the observer
+    // is delayed or something above went wrong.
+    window.setTimeout(function () {
+      document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach(function (el) {
+        el.classList.add("is-visible");
+      });
+    }, 2500);
   } else {
     document.querySelectorAll("[data-reveal]").forEach(function (el) {
       el.classList.add("is-visible");

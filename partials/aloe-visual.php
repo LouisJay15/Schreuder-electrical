@@ -7,7 +7,7 @@
 $label = $aloeVisualLabel ?? 'Abstract illustration of an aloe plant, representing steady growth';
 $extraClass = $aloeVisualClass ?? '';
 ?>
-<svg class="aloe-visual <?= e($extraClass) ?>" viewBox="0 0 600 600" role="img" aria-label="<?= e($label) ?>" data-reveal>
+<svg class="aloe-visual <?= e($extraClass) ?>" viewBox="0 0 600 600" role="img" aria-label="<?= e($label) ?>">
   <title><?= e($label) ?></title>
   <defs>
     <radialGradient id="aloeGlow" cx="50%" cy="62%" r="55%">

@@ -29,15 +29,12 @@
     groups.set(parent, i + 1);
   });
 
-  if (reduceMotion) {
-    document.querySelectorAll("[data-reveal]").forEach(function (el) {
-      el.classList.add("is-visible");
-    });
-  } else if ("IntersectionObserver" in window) {
+  if (!reduceMotion && "IntersectionObserver" in window) {
     var revealIO = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (e) {
           if (e.isIntersecting) {
+            e.target.classList.remove("reveal-pending");
             e.target.classList.add("is-visible");
             revealIO.unobserve(e.target);
           }
@@ -46,15 +43,18 @@
       { threshold: 0.15 }
     );
     document.querySelectorAll("[data-reveal]").forEach(function (el) {
-      revealIO.observe(el);
-    });
-    // Safety net: never leave content permanently invisible if the observer
-    // is delayed or something above went wrong.
-    window.setTimeout(function () {
-      document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach(function (el) {
+      // Only ever hide an element after confirming, synchronously, that it
+      // starts below the fold — content already on screen is never parked
+      // at opacity:0 waiting on the observer.
+      var rect = el.getBoundingClientRect();
+      var startsOnScreen = rect.top < window.innerHeight * 0.9 && rect.bottom > 0;
+      if (startsOnScreen) {
         el.classList.add("is-visible");
-      });
-    }, 2500);
+      } else {
+        el.classList.add("reveal-pending");
+        revealIO.observe(el);
+      }
+    });
   } else {
     document.querySelectorAll("[data-reveal]").forEach(function (el) {
       el.classList.add("is-visible");

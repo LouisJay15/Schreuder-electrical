@@ -46,6 +46,7 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
   margin: 0 0 0.5em;
   color: var(--ink);
+  text-wrap: balance;
 }
 h1 { font-size: clamp(2rem, 4.4vw, 3.25rem); letter-spacing: -0.02em; }
 h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); }
@@ -226,13 +227,15 @@ tbody tr:last-child td { border-bottom: none; }
 /* Reveal-on-scroll (motivated: draws the eye down the page on first view, and
    ties consecutive sections together instead of having each one just appear) */
 [data-reveal] {
-  opacity: 0;
-  transform: translateY(28px);
+  /* Visible by default — JS opts an element INTO the pre-animation hidden
+     state only once it has confirmed the element starts off-screen, so a
+     slow/blocked script never leaves content stuck invisible. */
   transition: opacity .7s var(--ease-flow), transform .7s var(--ease-flow);
   transition-delay: calc(var(--reveal-i, 0) * 70ms);
 }
-[data-reveal="left"] { transform: translateX(-36px); }
-[data-reveal="right"] { transform: translateX(36px); }
+[data-reveal].reveal-pending { opacity: 0; transform: translateY(28px); }
+[data-reveal="left"].reveal-pending { transform: translateX(-36px); }
+[data-reveal="right"].reveal-pending { transform: translateX(36px); }
 [data-reveal].is-visible { opacity: 1; transform: none; }
 
 /* Section-level flow: driven by --enter (0→1), written by IntersectionObserver

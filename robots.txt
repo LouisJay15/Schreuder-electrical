@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+Disallow: /verify-otp
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /backend/
+Disallow: /404
+Disallow: /403
+
+Sitemap: https://www.aloecredit.co.za/sitemap.xml

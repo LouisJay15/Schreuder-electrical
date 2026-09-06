@@ -20,13 +20,13 @@ $jsonLd = [
     <div class="container">
       <p class="breadcrumbs"><a href="/">Home</a> / About</p>
       <div class="hero-grid" style="min-height:auto; padding:0;">
-        <div>
+        <div data-reveal="left">
           <p class="eyebrow">Our story</p>
           <h1>Lending shouldn't need a translator.</h1>
           <p class="lede">Aloe Credit was started with one frustration: loan agreements written to be technically correct and practically unreadable. We build the opposite — terms a first-time borrower can actually understand.</p>
         </div>
-        <div class="hero-art" style="box-shadow:none; border:1px solid var(--line);">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1000&h=820&fit=crop&auto=format&q=80" alt="An aloe plant on a desk beside a laptop, representing steady, resilient growth" width="1000" height="820" loading="eager">
+        <div class="hero-art hero-art-visual" data-reveal="right" style="box-shadow:none; border:1px solid var(--line);">
+          <?php require __DIR__ . '/partials/aloe-visual.php'; ?>
         </div>
       </div>
     </div>

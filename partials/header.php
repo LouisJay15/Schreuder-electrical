@@ -1,5 +1,6 @@
 <?php $navUser = current_user(); ?>
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="/">

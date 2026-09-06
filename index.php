@@ -51,8 +51,8 @@ $jsonLd = [
           <div><strong>6–60 months</strong><span>Flexible terms</span></div>
         </div>
       </div>
-      <div class="hero-art">
-        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=1000&fit=crop&auto=format&q=80" alt="A small South African business owner reviewing paperwork at her shop counter" width="1200" height="1000" loading="eager">
+      <div class="hero-art hero-art-visual">
+        <?php $aloeVisualLabel = 'Abstract illustration of an aloe plant, representing steady, resilient growth'; require __DIR__ . '/partials/aloe-visual.php'; ?>
       </div>
     </div>
   </section>
@@ -109,13 +109,13 @@ $jsonLd = [
   <section class="section section-alt">
     <div class="container">
       <div class="grid grid-2" style="gap:24px; align-items:stretch;">
-        <div class="card" data-reveal>
+        <div class="card" data-reveal="left">
           <h2 style="font-size:1.5rem;">Every rand, explained.</h2>
           <p class="muted">Before you sign anything, you'll see the interest rate, the initiation fee, monthly service fee, and total repayment — laid out in one place, in plain language.</p>
           <a href="/loan-calculator" class="btn btn-secondary" style="margin-top:8px;">Try the calculator</a>
         </div>
-        <div class="card card-flush" data-reveal>
-          <img src="https://images.unsplash.com/photo-1554774853-b415df9eeb92?w=900&h=700&fit=crop&auto=format&q=80" alt="Close-up of a phone displaying a loan repayment schedule" width="900" height="700" loading="lazy" style="height:100%; object-fit:cover;">
+        <div class="card card-flush hero-art-visual" data-reveal="right" style="border-radius:var(--radius-lg);">
+          <?php $aloeVisualLabel = 'Abstract illustration of an aloe plant'; require __DIR__ . '/partials/aloe-visual.php'; ?>
         </div>
       </div>
     </div>

@@ -58,6 +58,7 @@ function rate_limit_policy(string $bucket): array
         'register'           => [5, 3600],   // 5 / hour per ip
         'contact'             => [5, 3600],  // 5 / hour per ip
         'apply'                => [5, 3600], // 5 / hour per ip
+        'chat'                => [40, 600],  // 40 / 10 min per ip — cheap to serve, still capped against scripted abuse
         default              => [10, 600],
     };
 }

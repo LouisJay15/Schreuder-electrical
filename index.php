@@ -35,12 +35,15 @@ $jsonLd = [
 <?php require __DIR__ . '/partials/header.php'; ?>
 <main id="main">
 
-  <section class="hero">
+  <section class="hero hero-chat">
     <div class="container hero-grid">
       <div>
+        <div class="aloe-visual-mini" aria-hidden="true">
+          <?php $aloeVisualLabel = ''; $aloeVisualClass = 'aloe-visual-small'; require __DIR__ . '/partials/aloe-visual.php'; ?>
+        </div>
         <span class="badge" style="background:rgba(30,143,94,.18); color:#7cd6ac;">NCR-registered credit provider</span>
-        <h1 style="margin-top:16px;">Borrow with clarity, not small print.</h1>
-        <p class="lede">A personal loan that tells you the real rate up front, with a decision in one business day — not a week of paperwork.</p>
+        <h1 style="margin-top:16px;">Ask Aloe Credit anything about our loans.</h1>
+        <p class="lede">Our guide answers questions about amounts, rates, eligibility and applying — instantly, with no forms first. It only knows Aloe Credit's products, and can't see anyone's account or company data.</p>
         <div class="hero-cta">
           <a href="/apply" class="btn btn-primary">Apply Now</a>
           <a href="/loan-calculator" class="btn btn-secondary">Calculate repayments</a>
@@ -51,8 +54,27 @@ $jsonLd = [
           <div><strong>6–60 months</strong><span>Flexible terms</span></div>
         </div>
       </div>
-      <div class="hero-art hero-art-visual">
-        <?php $aloeVisualLabel = 'Abstract illustration of an aloe plant, representing steady, resilient growth'; require __DIR__ . '/partials/aloe-visual.php'; ?>
+
+      <div class="chat-panel" id="chat-panel" data-reveal="right">
+        <div class="chat-log" id="chat-log" aria-live="polite">
+          <div class="chat-msg chat-msg-agent">
+            <div class="chat-avatar" aria-hidden="true">AC</div>
+            <div class="chat-bubble">Hi, I'm the Aloe Credit guide. Ask me about loan amounts, rates, eligibility, or how to apply — I only answer questions about Aloe Credit's products.</div>
+          </div>
+        </div>
+        <div class="chat-suggestions" id="chat-suggestions">
+          <button type="button" class="chat-chip" data-q="How much can I borrow?">How much can I borrow?</button>
+          <button type="button" class="chat-chip" data-q="What are your interest rates?">What are your interest rates?</button>
+          <button type="button" class="chat-chip" data-q="How do I apply?">How do I apply?</button>
+          <button type="button" class="chat-chip" data-q="Is my information secure?">Is my information secure?</button>
+        </div>
+        <form id="chat-form" class="chat-form">
+          <?= csrf_field() ?>
+          <input type="hidden" id="chat-csrf" value="<?= e(csrf_token()) ?>">
+          <label class="visually-hidden" for="chat-input">Ask a question about Aloe Credit</label>
+          <input type="text" id="chat-input" name="message" placeholder="Ask about loans, rates, applying…" autocomplete="off" maxlength="300">
+          <button type="submit" class="btn btn-primary">Ask</button>
+        </form>
       </div>
     </div>
   </section>
@@ -189,5 +211,6 @@ $jsonLd = [
 
 </main>
 <?php require __DIR__ . '/partials/footer.php'; ?>
+<script src="/assets/js/chat.js" defer></script>
 </body>
 </html>
